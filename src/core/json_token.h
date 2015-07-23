@@ -17,35 +17,52 @@
  *
  * Author: Jay Jung <riverside.jung@gmail.com>
  */
-#ifndef _JSON_PARSER_H_
-#define _JSON_PARSER_H_
+#ifndef _JSON_TOKEN_H_
+#define _JSON_TOKEN_H_
 
-#include "json_value.h"
-#include "json_object.h"
-#include "json_tokenizer.h"
+#include <string>
 
 namespace fdream {
+
+enum JsonTokenId
+{
+    JSON_TOKEN_ID_OBJECT_START,
+    JSON_TOKEN_ID_OBJECT_END,
+    JSON_TOKEN_ID_ARRAY_START,
+    JSON_TOKEN_ID_ARRAY_END,
+    JSON_TOKEN_ID_NAME,
+    JSON_TOKEN_ID_STRING,    
+    JSON_TOKEN_ID_NUMBER,    
+    JSON_TOKEN_ID_BOOLEAN,    
+    JSON_TOKEN_ID_NULL,    
+};
 
 /**
  * \brief
  */
-class JsonParser
+class JsonToken
 {
 public:
-    /**
-     *\brief 
-     *\param text 
-     */
-    JsonParser(const std::string & text) : _rootValue(nullptr)
-    {}
+    JsonToken(JsonTokenId id, const std::string & content)
+        : _id(id), _content(content)
+    {} 
 
-    JsonValue * Parse();
+    JsonTokenId GetId() const
+    {
+        return _id;
+    }
+
+    const std::string & GetContent() const
+    {
+        return _content;
+    }
 
 private:
-    JsonValue * _root;
+    JsonTokenId _id;
+    std::string _content;
 };
 
 } // fdream
 
-#endif // _JSON_PARSER_H_
+#endif // _JSON_TOKEN_H_
 

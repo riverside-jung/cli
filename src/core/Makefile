@@ -20,7 +20,10 @@ CPPFLAGS = $(CFLAGS) -std=c++11
 OBJS = 
 APP_LIB =
 
-OBJS_LIB = $(OBJ_DIR)/json_object.o
+OBJS_LIB = $(OBJ_DIR)/json_object.o \
+           $(OBJ_DIR)/json_tokenizer.o \
+           $(OBJ_DIR)/string_utils.o
+
 APP_LIB = $(OBJ_DIR)/lib/libclicore.a
 
 all: $(OBJ_DIR) $(APP_LIB)

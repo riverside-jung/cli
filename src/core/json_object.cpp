@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Authors: Jay Jung <riverside.jung@gmail.com>,
+ * Authors: Jay Jung <riverside.jung@gmail.com>
  */
 #include "json_value.h"
 #include "json_object.h"
@@ -44,7 +44,7 @@ JsonObject::GetValue(const std::string & name)
 
     it = _members.find(name);
     if (it == _members.end()) {
-        return NULL;
+        return nullptr;
     }
 
     return it->second;

@@ -31,10 +31,12 @@ CFLAGS = $(COPT) $(DEBUG) $(INCLUDEDIRS) $(DEFINE)
 CPPFLAGS = $(CFLAGS) -std=c++11
 
 OBJS = $(OBJ_DIR)/test_main.o \
+       $(OBJ_DIR)/string_utils_test.o \
        $(OBJ_DIR)/json_value_test.o \
        $(OBJ_DIR)/json_number_value_test.o \
        $(OBJ_DIR)/json_string_value_test.o \
-       $(OBJ_DIR)/json_object_test.o
+       $(OBJ_DIR)/json_object_test.o \
+       $(OBJ_DIR)/json_tokenizer_test.o
 
 APP = test
 

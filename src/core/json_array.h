@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Authors: Jay Jung <riverside.jung@gmail.com>,
+ * Author: Jay Jung <riverside.jung@gmail.com>
  */
 #ifndef _JSON_ARRAY_H_
 #define _JSON_ARRAY_H_
@@ -29,6 +29,15 @@ class JsonArray
 {
 public:
     virtual ~JsonArray() = default;
+
+    /**
+     * \brief
+     * \returns
+     */
+    JsonValue::Type GetType()
+    {
+        return JsonValue::TYPE_ARRAY;
+    }
 
 private:
     std::vector<JsonValue *> _values;

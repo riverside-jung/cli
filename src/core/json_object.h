@@ -15,17 +15,17 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Authors: Jay Jung <riverside.jung@gmail.com>,
+ * Author: Jay Jung <riverside.jung@gmail.com>
  */
 #ifndef _JSON_OBJECT_H_
 #define _JSON_OBJECT_H_
+
+#include "json_value.h"
 
 #include <string>
 #include <map>
 
 namespace fdream {
-
-class JsonValue;
 
 /**
  * \brief
@@ -41,8 +41,7 @@ public:
      * \param value 
      * \returns
      */
-    bool
-    AddValue(const std::string & name, JsonValue * value);
+    bool AddValue(const std::string & name, JsonValue * value);
 
     /**
      * \brief
@@ -50,8 +49,7 @@ public:
      * \param value 
      * \returns
      */
-    bool
-    GetValue(const std::string & name, std::string & value);
+    bool GetValue(const std::string & name, std::string & value);
 
     /**
      * \brief
@@ -59,8 +57,7 @@ public:
      * \param value 
      * \returns
      */
-    bool
-    GetValue(const std::string & name, uint32_t & value);
+    bool GetValue(const std::string & name, uint32_t & value);
 
     /**
      * \brief
@@ -68,12 +65,26 @@ public:
      * \param value 
      * \returns
      */
-    bool
-    IsNull(const std::string & name);
+    bool IsNull(const std::string & name);
+
+    /**
+     * \brief
+     * \param name 
+     * \returns
+     */
+    JsonValue::Type GetValueType(const std::string & name);
+
+    /**
+     * \brief
+     * \returns
+     */
+    JsonValue::Type GetType()
+    {
+        return JsonValue::TYPE_OBJECT;
+    }
 
 private:
-    JsonValue *
-    GetValue(const std::string & name);
+    JsonValue * GetValue(const std::string & name);
 
     std::map<std::string, JsonValue * > _members;
 };

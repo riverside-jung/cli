@@ -15,15 +15,15 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Authors: Jay Jung <riverside.jung@gmail.com>,
+ * Author: Jay Jung <riverside.jung@gmail.com>
  */
 #ifndef _JSON_BOOEAN_VALUE_H_
 #define _JSON_BOOEAN_VALUE_H_
 
+#include "json_value.h"
+
 namespace fdream {
  
-class JsonValue;
-
 /**
  * \brief
  */
@@ -33,6 +33,15 @@ class JsonBooleanValue : public JsonValue
 public:
     JsonBooleanValue(bool value) : _value(value)
     {} 
+
+    /**
+     * \brief
+     * \returns
+     */
+    JsonValue::Type GetType()
+    {
+        return JsonValue::TYPE_BOOLEAN;
+    }
      
 private:
     bool _value;

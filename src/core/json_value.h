@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Authors: Jay Jung <riverside.jung@gmail.com>,
+ * Author: Jay Jung <riverside.jung@gmail.com>
  */
 #ifndef _JSON_VALUE_H_
 #define _JSON_VALUE_H_
@@ -24,6 +24,9 @@
 
 namespace fdream {
 
+class JsonObject;
+class JsonArray;
+
 /**
  * \brief
  */
@@ -31,6 +34,17 @@ class JsonValue
 {
 public:
     virtual ~JsonValue() = default; 
+
+    enum Type
+    {
+        TYPE_UNKNOWN,
+        TYPE_OBJECT,
+        TYPE_ARRAY,
+        TYPE_STRING,
+        TYPE_NUMBER,
+        TYPE_BOOLEAN,
+        TYPE_NULL,
+    };
 
     /**
      * \brief
@@ -70,6 +84,31 @@ public:
     virtual bool IsNull()
     {
         return false;
+    }
+
+    /**
+     * \brief
+     * \param value
+     * \returns always false
+     */
+    virtual bool GetValue(JsonObject & value)
+    {
+        return false;
+    }
+
+    /**
+     * \brief
+     * \param value
+     * \returns always false
+     */
+    virtual bool GetValue(JsonArray & value)
+    {
+        return false;
+    }
+
+    virtual Type GetType()
+    {
+        return TYPE_UNKNOWN;
     }
 };
 

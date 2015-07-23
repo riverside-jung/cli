@@ -15,16 +15,15 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Authors: Jay Jung <riverside.jung@gmail.com>,
+ * Author: Jay Jung <riverside.jung@gmail.com>
  */
 #ifndef _JSON_NUMBER_VALUE_H_
 #define _JSON_NUMBER_VALUE_H_
 
+#include "json_value.h"
 #include <string>
 
 namespace fdream {
-
-class JsonValue;
 
 /**
  * \brief
@@ -52,6 +51,16 @@ public:
     {
         value = static_cast<uint32_t >(_value);
         return true;
+    }
+
+    /**
+     * \brief
+     * \returns
+     */
+    JsonValue::Type
+    GetType()
+    {
+        return JsonValue::TYPE_NUMBER;
     }
 
 private:
